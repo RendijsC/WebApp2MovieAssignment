@@ -21,13 +21,16 @@ const SimilarMovies = ({ movieId }) => {
   }
 
   return (
+    <div>
+      <h1>Similar Movies</h1>
     <Grid container spacing={2}>
-      {data.results.map(movie => (
+      {data.results.slice(0, 12).map(movie => (
         <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3} xl={2}>
           <MovieCard movie={movie} />
         </Grid>
       ))}
     </Grid>
+    </div>
   );
 };
 

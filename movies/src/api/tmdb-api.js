@@ -141,7 +141,20 @@ export const getMovie = (args) => {
     });
   };
 
-
+  export const getAlternativeTitles = (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${id}/alternative_titles?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    )
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch alternative titles');
+      }
+      return response.json();
+    })
+    .catch(error => {
+      throw error;
+    });
+  };
   
 
 
