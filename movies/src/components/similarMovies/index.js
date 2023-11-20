@@ -20,18 +20,27 @@ const SimilarMovies = ({ movieId }) => {
     return <div>Error: {error.message}</div>;
   }
 
+  
   return (
     <div>
       <h1>Similar Movies</h1>
-    <Grid container spacing={2}>
+    <Grid container spacing={3}>
       {data.results.slice(0, 12).map(movie => (
         <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3} xl={2}>
-          <MovieCard movie={movie} />
+          <MovieCard movie={movie}/>
         </Grid>
       ))}
     </Grid>
     </div>
   );
+
+
+
+
+
 };
 
+
+
 export default SimilarMovies;
+
