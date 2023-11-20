@@ -9,6 +9,7 @@ import Spinner from '../components/spinner'
 
 import SimilarMovies from "../components/similarMovies";
 import AlternativeTitles from "../components/alternativeTitles";
+import MovieActors from "../components/actors";
 
 
 
@@ -36,6 +37,7 @@ const MoviePage = (props) => {
           <PageTemplate movie={movie}>
           <AlternativeTitles movieId={id} />
             <MovieDetails movie={movie} />
+            <MovieActors movieId={id} />
             <SimilarMovies movieId={id} />
 
           </PageTemplate>

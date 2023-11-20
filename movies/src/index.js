@@ -43,6 +43,7 @@ const App = () => {
           <Route path="/movies/topRated" element={<TopRatedMoviesPage />} />
           <Route path="/movies/trending" element={<TrendingMoviesPage />} />
           <Route path="/movies/nowPlaying" element={<LatestMoviesPage />} />
+          
 
 
         </Routes>
