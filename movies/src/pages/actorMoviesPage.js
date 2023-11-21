@@ -4,10 +4,16 @@ import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import { useParams } from "react-router-dom";
 
 const ActorMoviePage = () => {
 
-    const { data, error, isLoading, isError } = useQuery('actorMovies', getActorMovies)
+  const { id } = useParams();
+
+    const { data, error, isLoading, isError } = useQuery(
+      ['actorMovies', { id: id }],
+      () => getActorMovies(id)
+    );
    
   
     if (isLoading) {
@@ -17,11 +23,11 @@ const ActorMoviePage = () => {
     if (isError) {
       return <h1>{error.message}</h1>;
     }
-    const movies = data.results;
+    const movies = data.cast;
   
     return (
       <PageTemplate
-        title="Now Playing Movies"
+        title="Actors Movies"
         movies={movies}
         action={(movie) => {
           return <AddToFavoritesIcon movie={movie} />;

@@ -14,7 +14,7 @@ import Button from "@mui/material/Button";
 
 
 const MovieActors = ({ movieId }) => {
-    const { data: actors, isLoading, isError, error } = useQuery(
+    const { data, isLoading, isError, error } = useQuery(
         ['actors', movieId],
         () => getMovieActors(movieId)
     );
@@ -27,6 +27,9 @@ const MovieActors = ({ movieId }) => {
         return <div>Error: {error.message}</div>;
     }
 
+    const actors = data?.cast;
+
+
     return (
         <div>
           <h2>Actors</h2>
@@ -37,7 +40,7 @@ const MovieActors = ({ movieId }) => {
                   <CardMedia
                     component="img"
                     height="400"
-                    image={actor.profile_path} 
+                    image={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}  
                     alt={actor.name}
                   />
                   <CardContent>
@@ -61,3 +64,6 @@ const MovieActors = ({ movieId }) => {
 };
 
 export default MovieActors;
+
+
+
