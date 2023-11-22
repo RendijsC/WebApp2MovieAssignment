@@ -29,7 +29,6 @@ const MovieActors = ({ movieId }) => {
 
     const actors = data?.cast;
 
-
     return (
         <div>
           <h2>Actors</h2>
