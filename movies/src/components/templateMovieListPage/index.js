@@ -10,6 +10,9 @@ function MovieListPageTemplate({ movies, title, action }) {
   const genreId = Number(genreFilter);
   const [ratingFilter, setRatingFilter] = useState("")
 
+  const [sortOrder, setSortOrder] = useState("");
+
+
     console.log(movies)
 
   let displayedMovies = movies
@@ -30,6 +33,14 @@ function MovieListPageTemplate({ movies, title, action }) {
     else if (type === "rating") setRatingFilter(value);
   };
 
+  if (sortOrder === "newest") {
+    displayedMovies.sort((a, b) => (b.release_date > a.release_date ? 1 : -1));
+  }
+
+  const handleSortChange = (order) => {
+    setSortOrder(order);
+  };
+
 
   return (
     <Grid container sx={{ padding: '20px' }}>
@@ -43,6 +54,7 @@ function MovieListPageTemplate({ movies, title, action }) {
             titleFilter={nameFilter}
             genreFilter={genreFilter}
             ratingFilter={ratingFilter}
+            onSortChange={handleSortChange}
           />
         </Grid>
         <MovieList action={action} movies={displayedMovies}></MovieList>

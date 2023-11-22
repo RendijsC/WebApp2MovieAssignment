@@ -13,7 +13,7 @@ import Select from "@mui/material/Select";
 import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
-
+import { Button } from "@mui/material";
 
 
 
@@ -59,6 +59,10 @@ export default function FilterMoviesCard(props) {
 
   const handleRatingChange = (event) => {
     props.onUserInput("rating", event.target.value); 
+  };
+
+  const handleSortButtonClick = () => {
+    props.onSortChange("newest");
   };
 
 
@@ -117,6 +121,11 @@ export default function FilterMoviesCard(props) {
     ))}
   </Select>
 </FormControl>
+
+<Button variant="outlined" onClick={handleSortButtonClick}>
+          Sort by Newest
+</Button>
+
         
 
       </CardContent>
