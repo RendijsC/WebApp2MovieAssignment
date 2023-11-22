@@ -44,6 +44,10 @@ export const getMovie = (args) => {
       throw error
    });
   };
+
+
+
+  
   
   export const getMovieImages = ({ queryKey }) => {
     const [, idPart] = queryKey;

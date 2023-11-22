@@ -1,4 +1,4 @@
-import React, {useState, useEffect}  from "react";
+import React from "react";
 import { getGenres } from "../../api/tmdb-api";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -14,6 +14,9 @@ import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 
+
+
+
 const formControl = 
   {
     margin: 1,
@@ -24,6 +27,8 @@ const formControl =
 export default function FilterMoviesCard(props) {
 
   const { data, error, isLoading, isError } = useQuery("genres", getGenres);
+
+
 
   if (isLoading) {
     return <Spinner />;
@@ -37,6 +42,8 @@ export default function FilterMoviesCard(props) {
     genres.unshift({ id: "0", name: "All" });
   }
 
+
+
   const handleChange = (e, type, value) => {
     e.preventDefault();
     props.onUserInput(type, value); // NEW
@@ -49,7 +56,10 @@ export default function FilterMoviesCard(props) {
   const handleGenreChange = (e) => {
     handleChange(e, "genre", e.target.value);
   };
-  
+
+  const handleRatingChange = (event) => {
+    props.onUserInput("rating", event.target.value); 
+  };
 
 
   return (
@@ -64,6 +74,7 @@ export default function FilterMoviesCard(props) {
           <SearchIcon fontSize="large" />
           Filter the movies.
         </Typography>
+        <Typography gutterBottom>Rating</Typography>
         <TextField
       sx={{...formControl}}
       id="filled-search"
@@ -91,6 +102,23 @@ export default function FilterMoviesCard(props) {
             })}
           </Select>
         </FormControl>
+        <FormControl sx={{ ...formControl }}>
+  <InputLabel id="rating-label">Minimum Rating</InputLabel>
+  <Select
+    labelId="rating-label"
+    id="rating-select"
+    value={props.ratingFilter}
+    onChange={handleRatingChange}
+  >
+    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((rating) => (
+      <MenuItem key={rating} value={rating}>
+        {rating}
+      </MenuItem>
+    ))}
+  </Select>
+</FormControl>
+        
+
       </CardContent>
       <CardMedia
         sx={{ height: 300 }}
