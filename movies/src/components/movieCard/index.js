@@ -30,6 +30,7 @@ export default function MovieCard({ movie, action }) {
       e.preventDefault();
       addToFavorites(movie);
     };
+    
   return (
     <Card sx={{ maxWidth: 345 }}>
  <CardHeader

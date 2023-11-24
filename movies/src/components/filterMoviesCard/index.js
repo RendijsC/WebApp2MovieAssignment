@@ -65,6 +65,8 @@ export default function FilterMoviesCard(props) {
     props.onSortChange("newest");
   };
 
+  
+
 
   return (
     <Card 
@@ -88,6 +90,7 @@ export default function FilterMoviesCard(props) {
       value={props.titleFilter}
       onChange={handleTextChange}
     />
+    
         <FormControl sx={{...formControl}}>
           <InputLabel id="genre-label">Genre</InputLabel>
           <Select

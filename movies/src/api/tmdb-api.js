@@ -191,4 +191,19 @@ export const getMovie = (args) => {
     });
   };
 
+
+  export const searchActors = (query) => {
+    return fetch(
+      `https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+    )
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch actors');
+      }
+      return response.json();
+    })
+    .catch(error => {
+      throw error;
+    });
+  };
   

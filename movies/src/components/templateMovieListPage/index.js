@@ -14,9 +14,13 @@ function MovieListPageTemplate({ movies, title, action }) {
   const genreId = Number(genreFilter);
   const [ratingFilter, setRatingFilter] = useState("")
   const [sortOrder, setSortOrder] = useState("");
+
   
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 11;
+
+
+console.log(movies);
 
   let displayedMovies = movies
     .filter((m) => {
@@ -30,6 +34,7 @@ function MovieListPageTemplate({ movies, title, action }) {
       return ratingFilter ? parseFloat(m.vote_average) >= parseFloat(ratingFilter) : true;
     })
 
+
     .sort((a, b) => sortOrder === "newest" ? (b.release_date > a.release_date ? 1 : -1) : 0);
 
   const indexOfLastMovie = currentPage * itemsPerPage;
@@ -40,7 +45,7 @@ function MovieListPageTemplate({ movies, title, action }) {
     if (type === "name") setNameFilter(value);
     else if (type === "genre") setGenreFilter(value);
     else if (type === "rating") setRatingFilter(value);
-  };
+    };
 
   const handleSortChange = (order) => {
     setSortOrder(order);
