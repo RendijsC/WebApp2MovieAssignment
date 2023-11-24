@@ -27,9 +27,11 @@ Sorting by year if button pressed shows movies newest to oldest .
 Feature 6 :
 Pagination added to the bottom of the page.
 
-## API endpoints.
+Feature 7 :
+New actor page with search actor function.
 
-[ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
+
+## API endpoints.
 
 Top rated movies =/movie/top_rated
 
@@ -47,8 +49,6 @@ Movie actors = /movie/${id}/credits
 
 
 ## Routing.
-
-[ List the __new routes__ supported by your app and state the associated page.]
 
 Top Rated
 /movies - displays all movies
