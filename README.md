@@ -5,18 +5,18 @@
 Name: Rendijs Cielava
 
 ## Overview.
-Created a movie website using react and tmdb.
+Created a movie web application using react and tmdb.
 
 ### Features.
  
 Feature 1 :
-Created new pages top rated, trending and now playing. Done this by copying upcoming movies page and connecting each new page to the associated api link to work and created routes in the index page.
+Created new pages top rated, trending and now playing. 
 
 Feature 2 :
 Parameterised end points, added alternative languages, associated actors to the movie and similar movies each new parameterised endpoint had a associated api link.
 
 Feature 3 : 
-Linking created able to click more info on actor card to show their movies.
+Linking created, able to click more info on actor card to show their movies.
 
 Feature 4 :
 Filter by rating where user is able to pick a minimum rating to be shown from 1 to 10.
