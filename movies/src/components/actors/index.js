@@ -2,7 +2,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Spinner from '../spinner'; 
-import { getMovieActors } from '../../api/tmdb-api';
+import { getMovieActors } from '../../api/frontend-tmdb-api';
 import Grid from '@mui/material/Grid'; 
 import Card from '@mui/material/Card'; 
 import CardMedia from '@mui/material/CardMedia'; 

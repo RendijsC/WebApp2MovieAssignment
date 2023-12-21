@@ -4,7 +4,7 @@ import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from "react-query";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import Spinner from "../components/spinner";
-import { getUpcomingMovies } from "../api/tmdb-api";
+import { getUpcomingMovies } from "../api/frontend-tmdb-api";
 import { MoviesContext } from "../contexts/moviesContext";
 
 const UpcomingMoviesPage = (props) => {

@@ -1,0 +1,13 @@
+{
+  "name": "movies-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js",
+    "dev": "nodemon --exec npm start"
+
+  },
+  "author": "RendijsC",
+  "license": "ISC"
+}

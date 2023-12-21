@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Spinner from '../spinner'; 
-import { getAlternativeTitles } from '../../api/tmdb-api';
+import { getAlternativeTitles } from '../../api/frontend-tmdb-api';
 
 const AlternativeTitles = ({ movieId }) => {
     const { data, isLoading, isError, error } = useQuery(
@@ -21,12 +21,13 @@ const AlternativeTitles = ({ movieId }) => {
       <div>
         <h1>Alternative Titles</h1>
         <ul>
-          {data.titles.slice(0, 5).map(title => (
-            <li key={title.iso_3166_1}>{title.title} ({title.iso_3166_1})</li>
+          {data.titles.slice(0, 5).map((title, index) => (
+            <li key={`${title.iso_3166_1}-${index}`}>{title.title} ({title.iso_3166_1})</li>
           ))}
         </ul>
       </div>
     );
   };
   
-  export default AlternativeTitles;
+export default AlternativeTitles;
+
